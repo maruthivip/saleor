@@ -1,0 +1,432 @@
+{
+  "summary": {
+    "business_area_count": 8,
+    "capability_count": 37,
+    "cross_cutting_capability_count": 4
+  },
+  "business_areas": [
+    {
+      "id": "ba_7029876541d6",
+      "name": "Financial Accounting",
+      "description": "Handles all financial operations including invoicing, payment processing, billing account management, tax calculations, and revenue recognition across business transactions. This area ensures accurate financial record-keeping, compliance with tax regulations, and proper reconciliation of payments to invoices while supporting multiple payment methods and billing arrangements.",
+      "capability_count": 7,
+      "capabilities": [
+        {
+          "id": "cap_3f7fceaad680",
+          "name": "Apply Payment to Invoice",
+          "description": "Matches received payments to outstanding invoices and calculates applied amounts. Tracks total payment amounts, applied amounts, and unapplied balances. Supports allocation of single payments across multiple invoices. Manages payment application lifecycle to ensure accurate accounts receivable tracking and financial reconciliation. Enables proper revenue recognition by linking payments to specific invoices.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_c81af542a173",
+          "name": "Calculate Tax",
+          "description": "Computes sales tax for invoices and orders based on complex jurisdictional rules. Determines tax breakdowns by jurisdiction including state, county, and local taxes. Integrates with third-party tax calculation services for accurate, location-specific tax rates. Manages tax compliance requirements and provides detailed tax reporting. Handles currency conversions for international transactions and resolves party tax information for proper tax treatment.",
+          "category": "cross_cutting",
+          "is_cross_cutting": true,
+          "area_count": 1,
+          "business_areas": [
+            {
+              "id": "ba_7029876541d6",
+              "name": "Financial Accounting"
+            }
+          ]
+        },
+        {
+          "id": "cap_76bf20e9978b",
+          "name": "Generate Invoice",
+          "description": "Creates invoices from completed customer orders, shipments, drop-shipments, and product returns. Generates commission invoices for partner compensation. Manages invoice status transitions and prepares invoices for payment processing. Calculates invoice totals including line items, taxes, shipping charges, and adjustments. Ensures accurate invoice term management and connects order fulfillment with financial accounting for proper revenue recognition.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_36c0796ae867",
+          "name": "Manage Billing Account",
+          "description": "Manages customer billing accounts and credit facilities. Calculates and tracks account balances including net balance and available credit. Enforces credit limits and monitors account status in real-time as payments are applied and charges are incurred. Retrieves open orders associated with billing accounts to support credit management decisions and financial controls. Provides foundation for customer credit terms and trade credit management.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_64532cd93f08",
+          "name": "Manage Financial Account",
+          "description": "Manages customer financial accounts such as store credits, gift certificates, and gift cards. Handles account creation, credit allocation, and refund processing. Validates account status and balance before authorizing transactions. Provides PIN validation and secure account code generation. Tracks actual and available balances with configurable precision and rounding rules. Serves as central validation service for account eligibility checks.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_c3c16c6aa34b",
+          "name": "Manage Payment Method",
+          "description": "Manages customer payment methods including credit cards, gift cards, electronic fund transfer accounts, and checking accounts. Supports full CRUD lifecycle for payment method registration and modification. Ensures secure handling of sensitive payment data with PCI compliance controls including clearing credit card information after authorization. Enables customers to save preferred payment methods for future transactions.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_a4b73d9c980c",
+          "name": "Process Payment",
+          "description": "Manages payment receipt and processing across multiple payment channels and methods. Handles online credit card processing, gift cards, electronic fund transfers, and offline payments including cash, check, and wire transfer. Integrates with payment gateways for authorization, capture, refund, and void operations. Maintains payment security and PCI compliance by handling sensitive payment data appropriately. Records payments against orders to ensure financial reconciliation.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        }
+      ]
+    },
+    {
+      "id": "ba_a61e1abf8ea1",
+      "name": "Inventory Management",
+      "description": "Manages product inventory tracking, warehouse transfers, stock availability, and inventory allocation across multiple facilities and locations. This area provides real-time visibility into inventory levels, coordinates inventory movements between warehouses, and ensures accurate tracking of committed and available stock to support order fulfillment and supply chain planning.",
+      "capability_count": 2,
+      "capabilities": [
+        {
+          "id": "cap_4b3e8f35ea73",
+          "name": "Track Inventory",
+          "description": "Monitors product inventory levels and availability across all facilities and warehouses. Provides real-time inventory visibility for order fulfillment and supply chain planning. Supports individual product queries and bulk inventory summaries. Calculates outstanding product quantities across active purchase orders (incoming stock) and sales orders (committed stock) to provide comprehensive view of inventory commitments. Prevents stockouts and overcommitment by maintaining accurate inventory records and tracking unfulfilled orders.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_a76cb6015f36",
+          "name": "Transfer Inventory",
+          "description": "Orchestrates the complete inventory transfer lifecycle between warehouses and facilities. Manages transfer preparation, execution, and completion workflows. Supports transfer cancellation when needed. Optimizes inventory distribution across the supply chain network to balance stock levels and meet regional demand. Coordinates inventory movements to prevent stockouts in high-demand locations while reducing overstock in others.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        }
+      ]
+    },
+    {
+      "id": "ba_5ec3a2dfed6c",
+      "name": "Manufacturing Operations",
+      "description": "Manages production planning, scheduling, capacity management, material requirements planning, and bill of materials for manufacturing activities. This area coordinates all aspects of manufacturing from material planning and BOM management through production scheduling and execution, ensuring efficient resource utilization and timely delivery of manufactured products.",
+      "capability_count": 4,
+      "capabilities": [
+        {
+          "id": "cap_6e408ae3217b",
+          "name": "Execute Material Requirements Planning",
+          "description": "Runs the core MRP calculation engine to determine material requirements for manufacturing operations. Analyzes production schedules, current inventory levels, and bill of materials hierarchies to identify material shortages and surpluses. Processes BOMs hierarchically to calculate component needs across all product levels. Tracks inventory across multiple facilities and generates MRP events to guide procurement and production scheduling decisions. Balances inventory availability against carrying costs and generates data-driven recommendations for purchase orders and manufacturing orders. Optimizes inventory levels to prevent stockouts while reducing excess inventory costs.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_8ec36423abb7",
+          "name": "Maintain Bill of Materials",
+          "description": "Manages hierarchical product structures and component relationships through bill of materials (BOM) definitions. Builds and traverses multi-level BOM trees to identify all required components for manufacturing. Calculates material quantities accounting for component multipliers, scrap factors, and substitutions. Detects circular dependencies to prevent infinite loops in BOM structures. Validates BOM configurations and analyzes BOM depth for complexity management. Manages virtual products and supports both standard and packaged product configurations. Determines material planning codes for inventory classification and prepares shipment packages based on BOM structures.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_c8e891fd9a89",
+          "name": "Manage Production Run",
+          "description": "Manages the complete lifecycle of manufacturing production runs from creation through completion. Tracks production order quantities, scheduling dates, status progression, and routing task coordination. Maintains relationships between production runs, required components, and finished products. Recalculates estimated completion dates based on task execution times and resource availability. Coordinates production run creation with BOM validation to ensure all materials are available. Serves as the central domain model for tracking production orders from start to finish and provides visibility into manufacturing operations.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_13836559c80d",
+          "name": "Schedule Production",
+          "description": "Manages production scheduling and resource capacity planning for manufacturing operations. Calculates machine and equipment capacity based on facility calendars including work hours and exception periods. Supports both forward scheduling (start date to completion) and backward scheduling (due date to start date) methodologies. Looks up routing tasks and task sequences for manufacturing resources. Computes remaining capacity to ensure accurate production schedules based on real-world constraints. Determines optimal production timing to meet demand while maintaining efficient resource utilization.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        }
+      ]
+    },
+    {
+      "id": "ba_2ce74af2d095",
+      "name": "Order Management",
+      "description": "Manages the complete order lifecycle from initial quote creation through order fulfillment, including order processing, returns, refunds, approvals, modifications, and status tracking. This area encompasses all customer-facing order operations and coordinates with inventory, payment, and fulfillment systems to ensure accurate order execution.",
+      "capability_count": 8,
+      "capabilities": [
+        {
+          "id": "cap_e5b1c56b425a",
+          "name": "Approve Order",
+          "description": "Manages order approval workflows including hold management and approval authorization. When an order is approved, automatically triggers downstream operations including inventory allocation and payment processing. Handles approval holds and ensures orders meet business rules before proceeding to fulfillment. Supports role-based approval permissions and security controls.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_acd3faf5eac9",
+          "name": "Cancel Order",
+          "description": "Processes order cancellations and rejections throughout the order lifecycle. Releases payment authorizations and allocated inventory when orders are cancelled. Supports full order cancellation as well as selective item cancellation for partial fulfillment scenarios. Maintains order status consistency and synchronizes changes across inventory, payment, and accounting systems.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_02312eb1d0a7",
+          "name": "Complete Order",
+          "description": "Finalizes orders upon successful fulfillment. Automatically generates invoices and records payment application when orders are marked complete. Ensures proper order closure and triggers revenue recognition processes. Maintains accurate order completion tracking and coordinates final state transitions across order management, billing, and accounting systems.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_684a1d37283a",
+          "name": "Create Order",
+          "description": "Enables creation of sales orders from shopping carts, quotes, or direct entry. Handles order data capture including customer information, line items, shipping groups, payment methods, and order terms. Supports multiple order types including standard sales orders, purchase orders for drop-shipping, digital fulfillment, and subscription auto-reorders. Validates inventory allocation and pricing rules during order creation.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_fd0be024e73e",
+          "name": "Manage Quote",
+          "description": "Supports the sales quote lifecycle including quote creation, storage, and distribution. Enables sales teams to create and persist price proposals for customers. Automatically emails quote reports to stakeholders. Facilitates the quote-to-order conversion process and provides systematic quote tracking for the pre-sales workflow.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_8ef69c5f18e0",
+          "name": "Modify Order",
+          "description": "Enables modification of approved orders including changes to shipping groups, delivery addresses, gift messages, and line items. Recalculates taxes and shipping charges when order details change. Manages order versioning and maintains audit trails of modifications. Supports bulk operations for efficient order updates across multiple orders.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_ee07c241f82e",
+          "name": "Process Return",
+          "description": "Manages the complete return and refund lifecycle for customer orders. Handles return request creation and validation, calculates returnable quantities and refund amounts accounting for adjustments, taxes, and promotions. Processes multiple return types including refunds, replacements, credits, and subscription returns. Coordinates financial reconciliation across payment methods like billing accounts and credit cards. Sends automated customer notifications for return acceptance, completion, and cancellation.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_e7f9abeb7add",
+          "name": "Track Order Status",
+          "description": "Provides comprehensive order search and status tracking capabilities. Enables filtering orders using flexible queries with wildcard and exact match support. Tracks order lifecycle status including processing, hold, cancellation, and fulfillment states. Identifies inventory availability issues and backorder situations. Maintains visibility into order progress for customer service and operations teams.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        }
+      ]
+    },
+    {
+      "id": "ba_9204b4356523",
+      "name": "Party Management",
+      "description": "Manages relationships and information for all business entities including customers, vendors, employees, and organizational structures. This area serves as the central repository for party data across the enterprise, maintaining contact information, party relationships, and supporting CRM, vendor management, and employee administration functions with consistent party lifecycle management.",
+      "capability_count": 4,
+      "capabilities": [
+        {
+          "id": "cap_69148a4fd7e8",
+          "name": "Maintain Party Information",
+          "description": "Manages individuals, organizations, and their core identifying information. Provides full CRUD lifecycle operations for party entities including customers, vendors, and employees. Handles both person records and organization (company) records with type-specific attributes. Searches parties by ID, email, login credentials, and external identifiers. Supports exact and partial matching for party discovery. Maintains party status, notes, and affiliate relationships. Formats and displays party names with configurable ordering rules. Serves as the foundational service for CRM, vendor management, and employee administration.",
+          "category": "cross_cutting",
+          "is_cross_cutting": true,
+          "area_count": 1,
+          "business_areas": [
+            {
+              "id": "ba_9204b4356523",
+              "name": "Party Management"
+            }
+          ]
+        },
+        {
+          "id": "cap_bf3165e452aa",
+          "name": "Manage Contact Information",
+          "description": "Manages all contact mechanisms for parties including email addresses, postal addresses, phone numbers, and other contact methods. Provides full CRUD operations for contact information with purpose-based organization such as billing addresses, shipping addresses, and primary contact numbers. Handles contact verification including email verification workflows. Supports copying contact information between parties for efficiency. Retrieves structured contact information by type and purpose including historical records. Formats payment card information securely by masking sensitive data. Integrates with address validation services to ensure delivery accuracy. Maintains geographic coordinates for location-based services.",
+          "category": "cross_cutting",
+          "is_cross_cutting": true,
+          "area_count": 1,
+          "business_areas": [
+            {
+              "id": "ba_9204b4356523",
+              "name": "Party Management"
+            }
+          ]
+        },
+        {
+          "id": "cap_3987c9d2b282",
+          "name": "Manage Party Relationships",
+          "description": "Creates and maintains relationships between business entities and their roles. Establishes connections such as customer-vendor relationships, employee-employer relationships, and organizational hierarchies. Tracks active relationship status and enforces relationship-based business rules. Provides relationship queries to support access control decisions and workflow routing. Maintains the network of business relationships that drive downstream operations and permissions across the system.",
+          "category": "cross_cutting",
+          "is_cross_cutting": true,
+          "area_count": 1,
+          "business_areas": [
+            {
+              "id": "ba_9204b4356523",
+              "name": "Party Management"
+            }
+          ]
+        },
+        {
+          "id": "cap_44bf355a8d7a",
+          "name": "Retrieve Party Content",
+          "description": "Provides unified access to party-specific content including descriptions, notes, and supplementary information. Handles content localization, type filtering, and encoding for proper display. Simplifies content retrieval by providing a consistent interface across different content types and formats. Supports CRM systems, vendor portals, and employee information systems by enabling rich party profiles with descriptive content beyond basic contact data.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        }
+      ]
+    },
+    {
+      "id": "ba_85f100835020",
+      "name": "Product Catalog",
+      "description": "Manages product information, pricing, classifications, variants, features, and catalog organization for e-commerce operations. This area provides the foundation for product discovery and purchasing by maintaining comprehensive product data, supporting configurable products with multiple variations, implementing complex pricing rules, and enabling customers to browse and search products through hierarchical catalogs and faceted search.",
+      "capability_count": 5,
+      "capabilities": [
+        {
+          "id": "cap_97d0ef4d3596",
+          "name": "Calculate Product Price",
+          "description": "Determines purchase and sale prices for products using complex pricing rules. Evaluates pricing based on product types, customer relationships, organizational hierarchies, and time-based pricing periods. Processes primary and secondary price lists with conditional logic. Applies party hierarchy rules to determine customer-specific pricing. Supports dynamic pricing for product configurations by calculating base prices plus option costs and offsets. Ensures accurate pricing for all product types across different customer segments.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_41afa12ae218",
+          "name": "Configure Product Variants",
+          "description": "Manages configurable products with multiple variations such as size, color, and style. Creates and maintains product variants and their feature combinations. Builds feature trees to organize variant options hierarchically. Enables customers to find and select specific variants based on their feature preferences. Updates variant availability based on shipment and inventory data. Supports rapid variant selection and direct add-to-cart functionality to streamline purchasing for configurable products.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_b799c68605ec",
+          "name": "Maintain Product Information",
+          "description": "Manages core product catalog data including product classifications (virtual/variant, physical/digital, serialized), product relationships (parent-child, alternative packaging, refurbished), and product features. Handles product lifecycle states, availability flags, and ordering business rules such as decimal quantity support and stock requirements. Defines pricing applicability, shipping and tax rules, geographic restrictions, and calculates product ratings. Serves as the foundational product information service for catalog browsing, order processing, and inventory management.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_57c42fdef0d6",
+          "name": "Organize Product Catalog",
+          "description": "Manages product catalog structures, category hierarchies, and product-category memberships. Determines which catalogs are available to customers based on party and store context. Supports multiple catalog types including browse catalogs, search catalogs, promotional catalogs, quick-add lists, and marketplace integration. Builds hierarchical category trees for navigation menus and manages category rollups. Controls product visibility and purchase permissions through catalog-to-category relationships. Enables customers to browse products through breadcrumbs and hierarchical navigation.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_20df1d24023e",
+          "name": "Search Products",
+          "description": "Provides comprehensive product search and discovery capabilities. Supports keyword-based search as well as parametric (faceted) search allowing customers to filter by multiple feature criteria such as size, color, brand, and price range. Enables manager functions for bulk catalog operations including mass updates, category assignments, feature management, and product exports. Tracks visitor activity and recently viewed products. Supports product comparison features to help customers make informed purchasing decisions.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        }
+      ]
+    },
+    {
+      "id": "ba_2983c18ee442",
+      "name": "Shipping and Logistics",
+      "description": "Handles shipment cost estimation, carrier integration, routing, delivery tracking, and logistics coordination for order fulfillment. This area manages the complete shipping lifecycle from cost calculation and carrier selection through package tracking and delivery confirmation, integrating with external carrier services to provide accurate shipping options and real-time delivery visibility.",
+      "capability_count": 4,
+      "capabilities": [
+        {
+          "id": "cap_1d68e5f06c77",
+          "name": "Estimate Shipping Cost",
+          "description": "Calculates shipping costs and estimates delivery times for customer orders. Integrates with external carrier services to obtain real-time shipping rates based on origin, destination, package weight, dimensions, and selected shipping method. Uses internal pricing methods based on geographic zones, quantity breaks, and carrier rate tables. Applies shipping discounts and presents multiple shipping options with cost and speed tradeoffs. Calculates package values for insurance purposes. Supports both estimated costs during checkout and actual cost validation after packing by comparing against configured thresholds.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_e29a7386f936",
+          "name": "Route Shipment",
+          "description": "Manages shipment routing decisions and carrier assignment for outbound shipments and inbound purchase order receipts. Determines optimal routing based on destination, service level requirements, and carrier capabilities. Coordinates shipment handoff to carriers and manages carrier gateway configurations. Updates shipping route segments with actual package weights and dimensions. Synchronizes shipment data with external warehouse management systems via integration interfaces.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_72ae0c9adcec",
+          "name": "Track Shipment",
+          "description": "Provides shipment tracking and delivery status visibility throughout the shipment lifecycle. Integrates with carrier tracking services to retrieve real-time package location and delivery status. Sends automated shipment completion notifications to customers. Maintains tracking information for both outbound customer shipments and inbound purchase order receipts. Enables customer self-service tracking and provides customer service teams with shipment visibility for inquiry resolution.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_586cf3db956a",
+          "name": "Validate Shipping Address",
+          "description": "Validates and standardizes shipping addresses using carrier address validation services. Verifies postal codes and corrects address formatting to ensure successful delivery. Integrates with multiple carriers including USPS, UPS, and FedEx for address verification. Reduces shipment delays and undeliverable packages by catching address errors before shipment. Supports both domestic and international address validation.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        }
+      ]
+    },
+    {
+      "id": "ba_8d1bba36d581",
+      "name": "Warehouse Operations",
+      "description": "Orchestrates warehouse fulfillment activities including picking, packing, verification, and shipment preparation for customer orders. This area manages the physical warehouse processes that transform customer orders into ready-to-ship packages, ensuring accuracy through verification workflows and maintaining proper inventory tracking throughout the fulfillment cycle.",
+      "capability_count": 3,
+      "capabilities": [
+        {
+          "id": "cap_ecb1cdaae320",
+          "name": "Pack Shipment",
+          "description": "Manages the complete warehouse packing workflow from item organization through shipment finalization. Tracks items into packages and maintains detailed package information including weight, dimensions, and box type. Coordinates pickers, picklist bins, and handling instructions throughout the packing process. Validates packed quantities against inventory reservations to ensure accuracy. Supports both individual and bulk packing operations. Upon completion, automatically creates shipment records, issues inventory from warehouse stock, updates shipping route weights, and sets shipment status to packed. Calculates shipping weights and costs based on package configurations.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_b8f6e653fd36",
+          "name": "Pick Order Items",
+          "description": "Manages warehouse picking operations for order fulfillment. Organizes pick lists and tracks picklist bin completion status by monitoring whether all items are picked or cancelled. Converts order identifiers into actionable pick instructions for warehouse staff. Supports the workflow from order selection through physical item picking. Validates that all items in a picklist bin are accounted for before proceeding to verification and packing stages.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        },
+        {
+          "id": "cap_b202086afe80",
+          "name": "Verify Picked Items",
+          "description": "Provides pre-shipment quality control by verifying that picked items match order requirements. Validates picked quantities against ordered and reserved quantities to ensure inventory accuracy before shipment creation. Supports verification of individual items by product and location as well as bulk verification processing. Enables completing or cancelling verification sessions to finalize the picking process. Acts as a critical quality gate to prevent shipping errors by enforcing strict validation rules before items are packed and shipped.",
+          "category": "business",
+          "is_cross_cutting": false,
+          "area_count": 1,
+          "business_areas": null
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "total": 8,
+    "page": 1,
+    "size": 100,
+    "pages": 1
+  }
+}
