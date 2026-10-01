@@ -244,3 +244,5 @@ def initialize_breaker_board() -> BreakerBoard | None:
         cooldown_seconds=BREAKER_BOARD_COOLDOWN_SECONDS,
         ttl_seconds=BREAKER_BOARD_TTL_SECONDS,
     )
+
+# ecg commit-relation seed marker
