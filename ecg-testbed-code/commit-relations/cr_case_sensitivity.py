@@ -1,0 +1,1 @@
+"""Lowercase ticket key fixture."""
