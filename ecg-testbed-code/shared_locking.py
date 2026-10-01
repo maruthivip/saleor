@@ -21,3 +21,5 @@ def lock_objects(qs, *, skip_locked: bool = False):
     valid N:N state, and the reverse lookup must return both.
     """
     yield qs.select_for_update(skip_locked=skip_locked)
+
+# ecg commit-relation seed marker
