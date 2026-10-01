@@ -381,3 +381,5 @@ class CheckoutComplete(BaseMutation, I18nMixin):
             confirmation_needed=action_required,
             confirmation_data=action_data,
         )
+
+# ecg commit-relation seed marker
