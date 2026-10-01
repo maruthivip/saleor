@@ -24,3 +24,5 @@ def get_total_authorized(payments: Iterable[Payment], fallback_currency: str):
 def get_subtotal(order_lines: Iterable["OrderLine"], fallback_currency: str):
     subtotal_iterator = (line.total_price for line in order_lines)
     return sum(subtotal_iterator, zero_taxed_money(currency=fallback_currency))
+
+# ecg commit-relation seed marker
