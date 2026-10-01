@@ -427,3 +427,5 @@ class CheckoutCreateFromOrder(BaseMutation):
             checkout=SyncWebhookControlContext(node=checkout),
             unavailable_variants=variant_errors,
         )
+
+# ecg commit-relation seed marker
