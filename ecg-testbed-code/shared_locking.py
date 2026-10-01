@@ -23,3 +23,5 @@ def lock_objects(qs, *, skip_locked: bool = False):
     yield qs.select_for_update(skip_locked=skip_locked)
 
 # ecg commit-relation seed marker
+
+# ecg commit-relation seed marker
