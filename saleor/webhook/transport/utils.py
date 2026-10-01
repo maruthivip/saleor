@@ -753,3 +753,5 @@ def get_sqs_message_group_id(domain: str, app: App | None = None) -> str:
         identifier = slugify(app.identifier) if app.identifier else app.id
         group_id = f"{domain}:{identifier}"
     return group_id[:128]  # SQS MessageGroupId max length is 128 chars
+
+# ecg commit-relation seed marker
