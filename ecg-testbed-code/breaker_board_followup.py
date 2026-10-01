@@ -18,3 +18,5 @@ asserted by band A do not move.
 def placeholder() -> None:
     """Intentionally empty. Presence of a name is not evidence of work."""
     return None
+
+# ecg commit-relation seed marker
