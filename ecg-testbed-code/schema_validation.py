@@ -26,3 +26,5 @@ def validate_response(payload: dict) -> bool:
 # The ticket implemented here and the ticket referenced here are DIFFERENT. A
 # reverse lookup that leaks one into the other's list has cross-contaminated the
 # strong and weak edges, which is exactly what B3 AC-005 is for.
+
+# ecg commit-relation seed marker
