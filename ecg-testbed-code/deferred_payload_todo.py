@@ -15,3 +15,5 @@ DEFERRED_PAYLOAD_MAX_RETRIES = 12
 # generation once the queue split lands. This is the only mention of that
 # ticket anywhere in the repository: its "Implements" list must come back
 # empty, and an empty strong list is a finding, not an error.
+
+# ecg commit-relation seed marker
