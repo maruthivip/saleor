@@ -20,3 +20,5 @@ def emit_transition(app_id: str, before: str, after: str) -> dict:
     """
     assert before in STATES and after in STATES
     return {"app": app_id, "from": before, "to": after}
+
+# ecg commit-relation seed marker

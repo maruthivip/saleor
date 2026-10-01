@@ -22,3 +22,5 @@ def should_open(failures: int, total: int) -> bool:
     if total < BREAKER_FAILURE_MIN_COUNT:
         return False
     return (failures / total) * 100 >= BREAKER_FAILURE_THRESHOLD_PERCENTAGE
+
+# ecg commit-relation seed marker
